@@ -12,7 +12,8 @@ router.get('/', async (req, res) => {
       include: [
         {model: Category}, 
         {model: Tag, through: ProductTag, as:'product_tags'},
-      ]
+      ],
+      order: [['id', 'ASC']], 
     });
 
     res.status(200).json(productData);
